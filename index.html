@@ -56,22 +56,40 @@
             font-size: 16px;
         }
 
-        .button {
-            display: block;
-            width: 100%;
+        .donate-button {
+            display: flex;
+            align-items: center;
             padding: 15px;
-            margin: 20px 0;
+            margin: 10px 0;
             background-color: #ffffff;
-            color: #121212;
-            text-align: center;
-            text-decoration: none;
             border-radius: 8px;
-            font-size: 16px;
+            text-decoration: none;
+            color: #121212;
             transition: background-color 0.3s ease;
         }
 
-        .button:hover {
+        .donate-button:hover {
             background-color: #e0e0e0;
+        }
+
+        /* Стили для кнопок соцсетей в одну линию */
+        .social-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .social-buttons .menu-item {
+            flex: 1;
+            text-align: center;
+            margin: 0;
+        }
+
+        /* Разделительная линия */
+        .divider {
+            border-top: 1px solid #444;
+            margin: 20px 0;
         }
 
         /* Иконки (можно использовать FontAwesome) */
@@ -79,29 +97,63 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="main-menu">
         <h1>VPStudio</h1>
 
-        <!-- Соц. сети -->
-        <a href="https://vk.com/voiceprojectstudio" class="menu-item" target="_blank">
-            <i class="fab fa-vk"></i>
-            <span>VK</span>
+        <!-- Кнопки соцсетей в одну линию -->
+        <div class="social-buttons">
+            <a href="https://vk.com/voiceprojectstudio" class="menu-item" target="_blank">
+                <i class="fab fa-vk"></i>
+                <span>VK</span>
+            </a>
+            <a href="https://t.me/vpsfilm" class="menu-item" target="_blank">
+                <i class="fab fa-telegram"></i>
+                <span>Телеграм</span>
+            </a>
+            <a href="https://rutube.ru/channel/41747349/" class="menu-item" target="_blank">
+                <i class="fas fa-video"></i>
+                <span>Рутуб</span>
+            </a>
+            <a href="https://t.me/mister_t_voice" class="menu-item" target="_blank">
+                <i class="fas fa-question-circle"></i>
+                <span>Вопросы</span>
+            </a>
+        </div>
+
+        <!-- Разделительная линия -->
+        <div class="divider"></div>
+
+        <!-- Основное меню -->
+        <a href="#series" class="menu-item" onclick="showSection('series')">
+            <i class="fas fa-tv"></i>
+            <span>🎭 Сериалы</span>
         </a>
-        <a href="https://t.me/vpsfilm" class="menu-item" target="_blank">
-            <i class="fab fa-telegram"></i>
-            <span>Телеграм</span>
+        <a href="#films" class="menu-item" onclick="showSection('films')">
+            <i class="fas fa-film"></i>
+            <span>🎬 Фильмы</span>
         </a>
-        <a href="https://rutube.ru/channel/41747349/" class="menu-item" target="_blank">
-            <i class="fas fa-video"></i>
-            <span>Рутуб</span>
+        <a href="#animation" class="menu-item" onclick="showSection('animation')">
+            <i class="fas fa-smile"></i>
+            <span>🤡 Мульты</span>
         </a>
-        <a href="https://t.me/mister_t_voice" class="menu-item" target="_blank">
-            <i class="fas fa-question-circle"></i>
-            <span>По всем вопросам</span>
+        <a href="#dorama" class="menu-item" onclick="showSection('dorama')">
+            <i class="fas fa-heart"></i>
+            <span>😸 Дорамы</span>
         </a>
 
-        <!-- Сериалы -->
-        <h2>🎭 Сериалы</h2>
+        <!-- Разделительная линия перед кнопкой "Пожертвовать" -->
+        <div class="divider"></div>
+
+        <!-- Кнопка "Пожертвовать проекту" -->
+        <a href="https://donatty.com/vpstudio" class="donate-button" target="_blank">
+            <i class="fas fa-donate"></i>
+            <span>💎 Пожертвовать проекту</span>
+        </a>
+    </div>
+
+    <!-- Секция Сериалы -->
+    <div class="container" id="series" style="display: none;">
+        <h1>🎭 Сериалы</h1>
         <a href="https://t.me/+ElwE54bcMIY0M2Ri" class="menu-item" target="_blank">
             <i class="fas fa-tv"></i>
             <span>Одни из нас</span>
@@ -115,9 +167,15 @@
             <span>Голяк 4 сезон</span>
         </a>
         <!-- Добавь остальные сериалы по аналогии -->
+        <a href="#main-menu" class="menu-item" onclick="showSection('main-menu')">
+            <i class="fas fa-arrow-left"></i>
+            <span>Назад</span>
+        </a>
+    </div>
 
-        <!-- Фильмы -->
-        <h2>🎬 Фильмы</h2>
+    <!-- Секция Фильмы -->
+    <div class="container" id="films" style="display: none;">
+        <h1>🎬 Фильмы</h1>
         <a href="https://t.me/+GskMJIn3nt1lMjQy" class="menu-item" target="_blank">
             <i class="fas fa-film"></i>
             <span>Пиноккио Дель Торо</span>
@@ -131,9 +189,15 @@
             <span>Чип и Дейл</span>
         </a>
         <!-- Добавь остальные фильмы по аналогии -->
+        <a href="#main-menu" class="menu-item" onclick="showSection('main-menu')">
+            <i class="fas fa-arrow-left"></i>
+            <span>Назад</span>
+        </a>
+    </div>
 
-        <!-- Мульты -->
-        <h2>🤡 Мульты</h2>
+    <!-- Секция Мульты -->
+    <div class="container" id="animation" style="display: none;">
+        <h1>🤡 Мульты</h1>
         <a href="https://t.me/+EJmhMOQx7WA3M2M6" class="menu-item" target="_blank">
             <i class="fas fa-smile"></i>
             <span>Зверополис</span>
@@ -147,9 +211,15 @@
             <span>Супер Братья Марио</span>
         </a>
         <!-- Добавь остальные мульты по аналогии -->
+        <a href="#main-menu" class="menu-item" onclick="showSection('main-menu')">
+            <i class="fas fa-arrow-left"></i>
+            <span>Назад</span>
+        </a>
+    </div>
 
-        <!-- Дорамы -->
-        <h2>😸 Дорамы</h2>
+    <!-- Секция Дорамы -->
+    <div class="container" id="dorama" style="display: none;">
+        <h1>😸 Дорамы</h1>
         <a href="https://t.me/+xLLtEx_khUo1M2Ji" class="menu-item" target="_blank">
             <i class="fas fa-heart"></i>
             <span>Бродяга</span>
@@ -162,19 +232,28 @@
             <i class="fas fa-heart"></i>
             <span>Гора Пэкду</span>
         </a>
-
-        <!-- Пожертвовать -->
-        <a href="https://donatty.com/vpstudio" class="button" target="_blank">
-            💎 Пожертвовать проекту
+        <a href="#main-menu" class="menu-item" onclick="showSection('main-menu')">
+            <i class="fas fa-arrow-left"></i>
+            <span>Назад</span>
         </a>
     </div>
 
     <script>
+        // Функция для переключения между секциями
+        function showSection(sectionId) {
+            document.querySelectorAll('.container').forEach(container => {
+                container.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
         // Открываем ссылки без закрытия Mini App
         document.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', (e) => {
-                e.preventDefault();
-                window.open(link.href, '_blank');
+                if (link.target !== '_blank') {
+                    e.preventDefault();
+                    window.open(link.href, '_blank');
+                }
             });
         });
     </script>
